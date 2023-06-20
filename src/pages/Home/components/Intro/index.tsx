@@ -5,28 +5,9 @@ import {
   LeftContent,
   TextContainer,
 } from './styles'
-
-import CoffeeMain from '../../../../assets/coffee-main.png'
 import { Coffee, Package, ShoppingCart, Timer } from '@phosphor-icons/react'
 
-const benefits = [
-  {
-    content: 'Compra simples e segura',
-    icon: <ShoppingCart weight="fill" color="white" />,
-  },
-  {
-    content: 'Embalagem mantém o café intacto',
-    icon: <Package weight="fill" color="white" />,
-  },
-  {
-    content: 'Entrega rápida e rastreada',
-    icon: <Timer weight="fill" color="white" />,
-  },
-  {
-    content: 'O café chega fresquinho até você',
-    icon: <Coffee weight="fill" color="white" />,
-  },
-]
+import CoffeeMain from '@/assets/coffee-main.png'
 
 export function Intro() {
   return (
@@ -42,14 +23,33 @@ export function Intro() {
         </TextContainer>
 
         <AdvantagesContainer>
-          {benefits.map((benefit) => {
-            return (
-              <Advantage key={benefit.content}>
-                <div>{benefit.icon}</div>
-                <p>{benefit.content}</p>
-              </Advantage>
-            )
-          })}
+          <Advantage iconColor="orange">
+            <div>
+              <ShoppingCart weight="fill" color="white" />
+            </div>
+            <p>Compra simples e segura</p>
+          </Advantage>
+
+          <Advantage iconColor="black">
+            <div>
+              <Package weight="fill" color="white" />
+            </div>
+            <p>Embalagem mantém o café intacto</p>
+          </Advantage>
+
+          <Advantage iconColor="yellow">
+            <div>
+              <Timer weight="fill" color="white" />
+            </div>
+            <p>Entrega rápida e rastreada</p>
+          </Advantage>
+
+          <Advantage iconColor="purple">
+            <div>
+              <Coffee weight="fill" color="white" />
+            </div>
+            <p>O café chega fresquinho até você</p>
+          </Advantage>
         </AdvantagesContainer>
       </LeftContent>
 

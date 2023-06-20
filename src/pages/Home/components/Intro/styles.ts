@@ -33,17 +33,28 @@ export const AdvantagesContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 1.25rem;
+  row-gap: 1.25rem;
 `
+const ICON_COLOR = {
+  orange: 'yellowDark',
+  black: 'baseSubtitle',
+  yellow: 'yellow',
+  purple: 'purple',
+} as const
 
-export const Advantage = styled.div`
+interface AdvantageProps {
+  iconColor: keyof typeof ICON_COLOR
+}
+
+export const Advantage = styled.div<AdvantageProps>`
   display: flex;
   align-items: center;
   gap: 0.75rem;
 
   div {
     border-radius: 999px;
-    background-color: ${(props) => props.theme.colors.purple};
+    background-color: ${(props) =>
+      props.theme.colors[ICON_COLOR[props.iconColor]]};
 
     height: 32px;
     width: 32px;
